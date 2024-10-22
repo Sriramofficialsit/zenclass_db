@@ -1,1 +1,300 @@
-hii
+// To create a database with name "Zenclass_db"
+
+use Zen_class
+switched to db Zen_class
+
+// To create Collections 
+
+db.createCollection("users");
+{ ok: 1 }
+db.createCollection("codekata")
+{ ok: 1 }
+db.createCollection("attendance")
+{ ok: 1 }
+db.createCollection("topics")
+{ ok: 1 }
+db.createCollection("tasks")
+{ ok: 1 }
+db.createCollection("company_drives")
+{ ok: 1 }
+db.createCollection("mentors")
+
+// To add the sample datas to the Collections
+
+//users collecion
+
+db.users.insertMany([
+  {
+   "_id": ObjectId('6717e8bc49f8756d59db9744'),
+    "name": "Sriram",
+    "email": "sriramofficial.sit@gmail.com",
+    "joined_date": new Date("2020-01-10"),
+    "attendance": [],
+    "codekata_solved": 20
+  },
+  {
+     "_id": ObjectId('6717e8bc49f8756d59db9745'),
+    "name": "Kathar Basha",
+    "email": "basha@gmail.com",
+    "joined_date": new Date("2020-02-15"),
+    "attendance": [],
+    "codekata_solved": 15
+  },
+  {
+     "_id": ObjectId('6717e8bc49f8756d59db9746'),
+    "name": "janasri",
+    "email": "janasri@gmail.com",
+    "joined_date": new Date("2020-03-20"),
+    "attendance": [],
+    "codekata_solved": 25
+  },
+  {
+     "_id": ObjectId('6717e8bc49f8756d59db9747'),
+    "name": "Sri",
+    "email": "sri@gmail.com",
+    "joined_date": new Date("2020-10-17"),
+    "attendance": [],
+    "codekata_solved": 12
+  },
+  {
+     "_id": ObjectId('6717e8bc49f8756d59db9748'),
+    "name": "Ram",
+    "email": "Ram@gmail.com",
+    "joined_date": new Date("2020-10-21"),
+    "attendance": [],
+    "codekata_solved": 8
+  }
+]
+)
+
+
+//codekata
+
+db.codekata.insertMany([
+  {
+    "user_id": ObjectId('6717e8bc49f8756d59db9744'), 
+    "problems_solved": 20,
+    "date": new Date("2020-01-10")
+  },
+  {
+    "user_id": ObjectId('6717e8bc49f8756d59db9745'), 
+    "problems_solved": 15,
+    "date": new Date("2020-02-15")
+  },
+  {
+    "user_id": ObjectId('6717e8bc49f8756d59db9746'), 
+    "problems_solved": 25,
+    "date": new Date("2023-03-20")
+  },
+  {
+    "user_id": ObjectId('6717e8bc49f8756d59db9747'), 
+    "problems_solved": 12,
+    "date": new Date("2020-10-17")
+  },
+  {
+    "user_id": ObjectId('6717e8bc49f8756d59db9748'), 
+    "problems_solved": 8,
+    "date": new Date("2020-10-21")
+  }
+])
+
+
+
+//attendance
+
+db.attendance.insertMany([
+  {
+    "user_id":ObjectId('6717e8bc49f8756d59db9744'),
+    "date": new Date("2020-10-16"),
+    "status": "present",
+    "tasks_submitted": true
+  },
+  {
+    "user_id":ObjectId('6717e8bc49f8756d59db9745'), 
+    "date": new Date("2020-10-18"),
+    "status": "absent",
+    "tasks_submitted": false
+  },
+  {
+    "user_id":ObjectId('6717e8bc49f8756d59db9746'), 
+    "date": new Date("2020-10-20"),
+    "status": "absent",
+    "tasks_submitted": false
+  },
+  {
+    "user_id": ObjectId('6717e8bc49f8756d59db9747'), 
+    "date": new Date("2020-10-21"),
+    "status": "present",
+    "tasks_submitted": false
+  },
+  {
+    "user_id":ObjectId('6717e8bc49f8756d59db9748'), 
+    "date": new Date("2023-10-22"),
+    "status": "present",
+    "tasks_submitted": false
+  }
+])
+
+
+//topics
+
+db.topics.insertMany([
+  {
+    "title": "React Hooks",
+    "date_taught": new Date("2020-10-05")
+  },
+  {
+    "title": "React Redux",
+    "date_taught": new Date("2020-10-12")
+  },
+  {
+    "title": "Live practice",
+    "date_taught": new Date("2020-10-15")
+  }
+]
+)
+
+
+
+//tasks
+
+db.tasks.insertMany([
+  {
+    "title": "Movie search app",
+    "due_date": new Date("2020-10-05"),
+    "topic_id": ObjectId('6717ea8649f8756d59db9753')
+  },
+  {
+    "title": "complete react app",
+    "due_date": new Date("2020-10-12"),
+    "topic_id": ObjectId('6717ea8649f8756d59db9754')
+  },
+  {
+    "title": "reduc react app",
+    "due_date": new Date("2020-10-15"),
+    "topic_id": ObjectId('6717ea8649f8756d59db9755')
+  }
+]
+)
+
+
+
+//company_drives
+
+db.company_drives.insertMany([
+  {
+    "company_name": "Zoho",
+    "date": new Date("2020-10-30"),
+    "participants": [ObjectId('6717e8bc49f8756d59db9744'), ObjectId('6717e8bc49f8756d59db9747')] 
+  },
+  {
+    "company_name": "Tcs",
+    "date": new Date("2020-10-29"),
+    "participants": [ObjectId('6717e8bc49f8756d59db9745'),ObjectId('6717e8bc49f8756d59db9748')] 
+  }
+]
+)
+ 
+
+//mentors
+
+db.mentors.insertMany([
+  {
+  
+    "name": "Mr.Vishnu Vardhan",
+    "mentees_count": 16,
+    "mentees": [ObjectId('6717e8bc49f8756d59db9744'),ObjectId('6717e8bc49f8756d59db9747') ] 
+  },
+  {
+   
+    "name": "Ms.Sangeetha",
+    "mentees_count": 12,
+    "mentees": [ObjectId('6717e8bc49f8756d59db9746'), ObjectId('6717e8bc49f8756d59db9748')]
+  }
+]
+)
+
+
+//Find all the topics and tasks which are taught in the month of October:
+
+ db.topics.find({
+  date_taught: {$gte: new Date("2020-10-01"),$lt: new Date("2020-11-01")}
+});
+
+db.tasks.find({
+  due_date: {$gte: new Date("2020-10-01"),$lt: new Date("2020-11-01")}
+});
+
+
+
+//Find all the company drives which appeared between 15 Oct 2020 and 31 Oct 2020:
+
+db.company_drives.find({
+  date: {$gte: new Date("2020-10-15"),$lte: new Date("2020-10-31")}
+});
+
+
+
+//Find all the company drives and students who appeared for the placement:
+
+db.company_drives.aggregate([
+  {
+    $lookup: {
+      from: "users",
+      localField: "participants",
+      foreignField: "_id",
+      as: "participants_info"
+    }
+  }
+]);
+
+
+
+//Find the number of problems solved by the user in Codekata:
+
+db.codekata.aggregate([
+  {
+    $match: {
+      user_id: ObjectId('6717e8bc49f8756d59db9746') 
+    }
+  },
+  {
+    $group: {
+      _id: "$user_id",
+      total_solved: { $sum: "$problems_solved" }
+    }
+  }
+]);
+
+
+
+//Find all the mentors with mentee's count more than 15:
+
+ db.mentors.find({
+  mentees_count: { $gt: 15 }
+});
+
+
+
+
+//Find the number of users who are absent and tasks not submitted between 15 Oct 2020 and 31 Oct 2020:
+
+ db.attendance.aggregate([
+  {
+    $match: {
+      date: {
+        $gte: new Date("2020-10-15"),
+        $lte: new Date("2020-10-31")
+      },
+      status: "absent",
+      tasks_submitted: false
+    }
+  },
+  {
+    $group: {
+      _id: null,
+      count: { $sum: 1 }
+    }
+  }
+]);
+
